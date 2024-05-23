@@ -1,7 +1,7 @@
 name: map-github-to-discord-user
 description: A custom action to map PR author to Discord mention
 runs:
-  using: node12
+  using: node20
   main: index.js
 inputs:
   pr-author:
