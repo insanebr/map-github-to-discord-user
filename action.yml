@@ -1,15 +1,18 @@
-name: map-github-to-discord-user
-description: A custom action to map PR author to Discord mention
+name: Map GitHub user to Discord user
+description: Outputs a Discord mention for a given GitHub username using a mapping (inline JSON or file path).
+inputs:
+  pr-author:
+    description: GitHub username to map
+    required: true
+  mapping-json-inline:
+    description: Inline JSON object mapping GitHub usernames to Discord mentions (takes precedence if provided)
+    required: false
+  mapping-json:
+    description: Path to JSON file mapping GitHub usernames to Discord mentions (used if inline not provided)
+    required: false
+outputs:
+  discord-mention:
+    description: The mapped Discord mention string
 runs:
   using: node20
   main: index.js
-inputs:
-  pr-author:
-    description: The PR author's username
-    required: true
-  mapping-json:
-    description: Path to the JSON mapping file
-    required: true
-outputs:
-  discord-mention:
-    description: The Discord mention
