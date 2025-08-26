@@ -17,7 +17,7 @@ function loadMapping({ inline, path }) {
 }
 
 try {
-    const prAuthor = core.getInput("pr-author", { required: true }).trim();
+    const prAuthor = core.getInput("pr-author").trim();
     const inline = core.getInput("mapping-json-inline"); // optional
     const pathInput = core.getInput("mapping-json"); // optional
 
@@ -31,7 +31,6 @@ try {
         mapping = JSON.parse(raw);
     } catch (e) {
         core.setFailed(`Failed to parse mapping JSON: ${e.message}`);
-        process.exit(1);
     }
 
     if (Object.prototype.hasOwnProperty.call(mapping, prAuthor)) {
