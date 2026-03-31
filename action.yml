@@ -14,5 +14,5 @@ outputs:
   discord-mention:
     description: The mapped Discord mention string
 runs:
-  using: node20
+  using: node24
   main: index.js
